@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Dashboard;
 
 use App\Entity\Watcher;
 use App\Form\WatcherType;
@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/watchers')]
+#[Route('/dashboard/watchers')]
 class WatcherCRUDController extends AbstractController
 {
-    #[Route('/', name: 'app_watcher_c_r_u_d_index', methods: ['GET'])]
+    #[Route('/', name: 'app_dasboard_watchers_index', methods: ['GET'])]
     public function index(WatcherRepository $watcherRepository): Response
     {
         return $this->render('watcher_crud/index.html.twig', [

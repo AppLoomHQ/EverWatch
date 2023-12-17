@@ -1,8 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 
 {% block title %}Edit Watcher{% endblock %}
 
-{% block body %}
+{% block dashboard_content %}
     <h1>Edit Watcher</h1>
 
     {{ include('watcher_crud/_form.html.twig', {'button_label': 'Update'}) }}
