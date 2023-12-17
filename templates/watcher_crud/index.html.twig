@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Watcher index{% endblock %}
+
+{% block body %}
+    <h1>Watcher index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Link</th>
+                <th>Status</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for watcher in watchers %}
+            <tr>
+                <td>{{ watcher.id }}</td>
+                <td>{{ watcher.link }}</td>
+                <td>{{ watcher.status }}</td>
+                <td>{{ watcher.createdAt ? watcher.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ watcher.updatedAt ? watcher.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_watcher_c_r_u_d_show', {'id': watcher.id}) }}">show</a>
+                    <a href="{{ path('app_watcher_c_r_u_d_edit', {'id': watcher.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_watcher_c_r_u_d_new') }}">Create new</a>
+{% endblock %}
